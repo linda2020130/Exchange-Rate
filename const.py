@@ -1,14 +1,14 @@
 import configparser
 import os
 
-# 讀設定檔
+# Read setting file
 download_folder = 'C:/temp/Singapore_Currency'
 config_file = os.path.join(download_folder, 'singapore.ini')
 config = configparser.ConfigParser()
 config.optionxform = str  # reference: http://docs.python.org/library/configparser.html
 config.read(config_file)
 
-# 讀設定檔
+# read setting file
 exec_interval = int(config.get('system', 'exec_interval'))
 log_folder = config.get('system', 'log_folder')
 avail_hour = int(config.get('system', 'avail_hour'))
@@ -29,7 +29,7 @@ mail_receiver = config.get('mail', 'receiver')
 
 
 def write_ini(section, key, value):
-    config.set(section, key, value)  # 要修改Key 的 Value
+    config.set(section, key, value)
     config.write(open(config_file, 'w'))
 
 
